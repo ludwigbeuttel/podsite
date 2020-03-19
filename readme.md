@@ -29,7 +29,7 @@ However, this does make it possible to use a statically generated website that c
 just want to take a look at the application?
 
 1. make sure you have a current version of nodeJS installed
-2. Create/modify the .env file in the project's root folder and add FEEDLOCATION=your_feed_url
+2. Create a file named ".env" in the project's root folder and add FEEDLOCATION=your_feed_url
 3. Install dependencies using the command "npm install" and start the application in development mode using "npm run serve"
 
 ### full setup
