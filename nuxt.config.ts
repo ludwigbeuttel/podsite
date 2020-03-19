@@ -6,6 +6,10 @@ import { description, name } from "./podcastData"
 const nuxtConfig: Configuration = {
   mode: "universal",
   head: {
+    htmlAttrs: {
+      lang: "de",
+    },
+    lang: "de",
     title: name,
     meta: [
       { charset: "utf-8" },
@@ -42,6 +46,7 @@ const nuxtConfig: Configuration = {
    */
   plugins: [
     { src: "~/plugins/themeSwitch.ts", mode: "client" },
+    // { src: "~/plugins/forceDevtools.ts", mode: "all" },
   ],
   /*
    ** Nuxt.js dev-modules
