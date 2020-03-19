@@ -184,7 +184,7 @@ export default class Player extends Vue {
 
   mounted() {
     console.log(this.$accessor.activeEpisode.episode)
-    this.episode = new Episode(this.$accessor.activeEpisode.episode!)
+    this.episode = this.$accessor.activeEpisode.episode!
     this.playEpisode()
   }
 

@@ -16,7 +16,7 @@
 
       <v-tooltip v-for="(media,i) in socialMedia" :key="i" bottom>
         <template v-slot:activator="{ on }">
-          <v-btn icon dark :href="media.url" target="_blank" v-on="on">
+          <v-btn icon dark :href="media.url" target="_blank" :aria-label="media.name" v-on="on">
             <v-icon>{{ media.icon }}</v-icon>
           </v-btn>
         </template>

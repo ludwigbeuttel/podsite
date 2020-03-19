@@ -7,6 +7,7 @@ import episodeEdit from "@/components/episodeEdit.vue"
 import episodeSkeleton from "@/components/episodeSkeleton.vue"
 import fab from "@/components/fab.vue"
 import altDialog from "@/components/altDialog.vue"
+import Episode from "~/classes/episode"
 
 @Component({ components: { episode, episodeSkeleton, episodeEdit, fab, altDialog } })
 export default class Index extends Vue {
@@ -30,11 +31,11 @@ export default class Index extends Vue {
       this.max--
     }
 
-    return this.rss.item.slice(this.min, this.max)
+    return this.rss.item.slice(this.min, this.max).map((episodeData: EpisodeData) => new Episode(episodeData))
   }
 
   get showImages() {
-    return [...new Set(this.displayItems.map((item: EpisodeData) => item["itunes:image"]!.$.href))].length > 1
+    return [...new Set(this.displayItems.map((item: Episode) => item.image))].length > 1
   }
 
   get pages() {

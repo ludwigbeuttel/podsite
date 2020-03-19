@@ -10,6 +10,7 @@
           <v-card-text
             v-else-if="state.isSuccess"
             class="text--primary body-1"
+            style="white-space: pre-line"
             v-html="rss.description"
           />
         </v-card>
@@ -36,7 +37,7 @@
           <v-fade-transition group leave-absolute tag="div" class="row justify-center mx-0">
             <episode
               v-for="episode in displayItems"
-              :key="typeof episode.guid === 'string' ? episode.guid : episode.guid['_']"
+              :key="episode.guid['_']"
               :value="episode"
               :show-image="showImages"
               class="ma-6"

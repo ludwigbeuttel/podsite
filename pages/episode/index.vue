@@ -13,7 +13,7 @@
               <v-btn
                 outlined
                 color="secondary"
-                @click.stop="$accessor.activeEpisode.changeEpisode(episodeData)"
+                @click.stop="$accessor.activeEpisode.changeEpisode(episode)"
               >
                 <v-icon>mdi-play</v-icon>&nbsp;abspielen
               </v-btn>
@@ -78,7 +78,7 @@
                       </v-card-title>
                       <v-divider v-if="!$vuetify.breakpoint.xs" />
                       <v-card-text class="pa-0">
-                        <episodeEdit v-model="episodeData" />
+                        <episodeEdit v-model="episode" />
                       </v-card-text>
                       <v-divider />
                       <v-card-actions v-if="!$vuetify.breakpoint.xs">
@@ -128,7 +128,6 @@ import episodeEdit from "@/components/episodeEdit.vue"
 })
 export default class EpByGUID extends Vue {
   episode = new Episode()
-  episodeData = {}
   guid = ""
   state = new State()
 
@@ -168,7 +167,6 @@ export default class EpByGUID extends Vue {
         })
 
         if (data) {
-          this.episodeData = data
           this.episode = new Episode(data)
           this.state.success()
         } else {
