@@ -1,4 +1,5 @@
 import { Framework as VuetifyFramework } from "vuetify"
+
 import config from "@/nuxt.config"
 
 export default ({ $vuetify }: { $vuetify: VuetifyFramework }) => {

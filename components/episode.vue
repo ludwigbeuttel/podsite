@@ -114,6 +114,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
+
 import { EpisodeData } from "@/types"
 import Episode from "@/classes/episode"
 import altDialog from "@/components/altDialog.vue"

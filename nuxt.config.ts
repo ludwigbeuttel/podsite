@@ -87,7 +87,7 @@ const nuxtConfig: Configuration = {
    */
   build: {
     optimizeCSS: true,
-    extractCSS: true,
+    // extractCSS: true,
     extend(config: any, ctx: any) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? "source-map" : "inline-source-map"

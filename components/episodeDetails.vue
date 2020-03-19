@@ -49,6 +49,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "nuxt-property-decorator"
+
 import Episode from "@/classes/episode"
 
 @Component

@@ -9,14 +9,17 @@
       "dom"
     ],
     "esModuleInterop": true,
-    "experimentalDecorators": true,
     "resolveJsonModule": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
+    "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
+      "~/*": [
+        "./*"
+      ],
       "@/*": [
         "./*"
       ]
@@ -24,12 +27,14 @@
     "types": [
       "@types/node",
       "@nuxt/types",
-      "@nuxtjs/vuetify",
       "@nuxt/vue-app",
+      "@nuxtjs/vuetify",
       "@nuxtjs/axios"
     ],
   },
   "exclude": [
     "node_modules",
+    ".nuxt",
+    "dist"
   ]
 }

@@ -1,5 +1,6 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from "axios"
-import State from "./state"
+
+import State from "@/classes/state"
 
 export default class ApiCall extends State {
   public cancel(): void {
