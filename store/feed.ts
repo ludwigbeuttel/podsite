@@ -8,7 +8,7 @@ export const state = () => ({
 })
 
 export const mutations = mutationTree(state, {
-  set(state, data: any) {
+  setFeed(state, data: any) {
     state.rss = data
   },
   statusLoading(state) {
@@ -31,7 +31,7 @@ export const mutations = mutationTree(state, {
 export const actions = actionTree(
   { state },
   {
-    set({ commit }: any) {
+    set(): Promise<void> {
       return new Promise((resolve, reject) => {
         function reduce(obj: any) {
           if (Array.isArray(obj) && obj.length === 1) {
@@ -54,34 +54,27 @@ export const actions = actionTree(
           return obj
         }
 
-        commit("statusLoading")
+        this.app.$accessor.feed.statusLoading()
+
         const parser = new xml2js.Parser()
         Axios.get(process.env.NODE_ENV === "development" ? "/api/externalFeed" : process.env.FEEDLOCATION!)
           .then(res => parser.parseStringPromise(res.data))
-          .then(res => commit("set", reduce(res.rss.channel[0])))
-          .then(() => commit("statusSuccess"))
+          .then(res => this.app.$accessor.feed.setFeed(reduce(res.rss.channel[0])))
+          .then(() => this.app.$accessor.feed.statusSuccess())
           .then(() => resolve())
           .catch(e => {
-            commit("statusError")
+            this.app.$accessor.feed.statusError()
             reject(new Error(e))
           })
       })
     },
 
-    initFeed({ state, dispatch }: any) {
+    initFeed() {
       return new Promise((resolve, reject) => {
-        if (state.status.isSuccess) {
+        if (this.app.$accessor.feed.status.isSuccess) {
           resolve()
-        } else if (state.status.isLoading) {
-          setInterval(() => {
-            if (state.status.isSuccess) {
-              resolve()
-            } else if (state.status.isSuccess) {
-              reject(new Error("error"))
-            }
-          }, 100)
-        } else {
-          dispatch("set")
+        } else if (!this.app.$accessor.feed.status.isLoading) {
+          this.app.$accessor.feed.set()
             .then(() => resolve())
             .catch(() => reject(new Error("error")))
         }

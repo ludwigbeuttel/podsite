@@ -2,7 +2,6 @@ import { Vue, Component, Watch } from "nuxt-property-decorator"
 import Vibrant from "node-vibrant"
 import { Palette } from "node-vibrant/lib/color"
 
-import nuxtConfig from "@/nuxt.config"
 import player from "@/components/player.vue"
 import fab from "@/components/fab.vue"
 import altDialog from "@/components/altDialog.vue"
@@ -14,6 +13,9 @@ import { Platform, Social } from "@/types"
 })
 export default class DefaultLayout extends Vue {
   created() {
+  }
+
+  mounted() {
     this.$accessor.feed.initFeed()
     this.onImageChange()
   }
@@ -37,7 +39,7 @@ export default class DefaultLayout extends Vue {
   palette: null | Palette = null;
 
   @Watch("headerImage") async onImageChange() {
-    const palette = await Vibrant.from(`${nuxtConfig.router!.base!}/favicon.png`).getSwatches()
+    const palette = await Vibrant.from("/favicon.png").getSwatches()
 
     this.palette = palette
 

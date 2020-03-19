@@ -47,6 +47,7 @@ const nuxtConfig: Configuration = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    "nuxt-typed-vuex",
     "@nuxt/typescript-build",
     "@nuxtjs/vuetify",
     "@nuxtjs/eslint-module",
@@ -86,6 +87,9 @@ const nuxtConfig: Configuration = {
    ** Build configuration
    */
   build: {
+    transpile: [
+      /typed-vuex/,
+    ],
     optimizeCSS: true,
     // extractCSS: true,
     extend(config: any, ctx: any) {

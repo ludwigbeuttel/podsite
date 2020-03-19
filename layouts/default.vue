@@ -14,7 +14,7 @@
 
       <v-spacer />
 
-      <v-tooltip v-for="media in socialMedia" :key="media.url" bottom>
+      <v-tooltip v-for="(media,i) in socialMedia" :key="i" bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon dark :href="media.url" target="_blank" v-on="on">
             <v-icon>{{ media.icon }}</v-icon>
@@ -42,7 +42,7 @@
     <altDialog v-if="$accessor.feed.rss" no-fullscreen max-width="400">
       <template v-slot:activator="{ on }">
         <fab
-          :style="$accessor.activeEpisode.episode.title ? 'margin-bottom: 64px' : ''"
+          :style="$accessor.activeEpisode.episode && $accessor.activeEpisode.episode.title ? 'margin-bottom: 64px' : ''"
           style="transition-property: box-shadow, transform, opacity, -webkit-transform, margin;"
           extended="true"
           icon="mdi-plus"
@@ -91,7 +91,7 @@
 
     <v-slide-y-reverse-transition mode="out-in">
       <v-footer
-        v-if="$accessor.activeEpisode.episode.title"
+        v-if="$accessor.activeEpisode.episode && $accessor.activeEpisode.episode.title"
         :key="$accessor.activeEpisode.episode.title"
         padless
         fixed

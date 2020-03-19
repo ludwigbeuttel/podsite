@@ -42,7 +42,7 @@ export default class Index extends Vue {
   }
 
   get rss() {
-    return this.$accessor.state.feed.rss || false
+    return this.$accessor.feed.rss || false
   }
 
   created() {
