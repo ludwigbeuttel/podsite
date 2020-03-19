@@ -1,0 +1,85 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "@nuxtjs",
+    "plugin:nuxt/recommended",
+    "vuetify"
+  ],
+  "plugins": [
+    "vue",
+    "vuetify"
+  ],
+  "rules": {
+    "no-new": "off",
+    "no-console": "off",
+    "no-debugger": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/indent": "off",
+    "indent": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "no-prototype-builtins": "off",
+    "eol-last": "off",
+    "space-before-function-paren": "off",
+    "import/no-mutable-exports": "off",
+    "no-return-assign": "off",
+    "quotes": [
+      "warn",
+      "double"
+    ],
+    "key-spacing": "warn",
+    "comma-dangle": "warn",
+    "vue/script-indent": "off",
+    "vue/html-indent": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/multiline-html-element-content-newline": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/html-self-closing": [
+      "warn",
+      {
+        "html": {
+          "void": "always",
+          "normal": "always",
+          "component": "always"
+        },
+        "svg": "always",
+        "math": "always"
+      }
+    ],
+    "vuetify/no-deprecated-classes": "warn",
+    "vuetify/grid-unknown-attributes": "warn",
+    "vuetify/no-legacy-grid": "warn",
+    "arrow-parens": [
+      "warn",
+      "as-needed"
+    ],
+    // "sort-imports":"warn",
+    "keyword-spacing": "off"
+    // "prettier/prettier": [
+    //   "warn",
+    //   {
+    //     "trailingComma": "es5",
+    //     "tabWidth": 2,
+    //     "semi": false,
+    //     "endOfLine": "lf",
+    //     "htmlWhitespaceSensitivity": "ignore",
+    //     "singleQuote": false,
+    //     "parser": "vue"
+    //   }
+    // ]
+  }
+}

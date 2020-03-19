@@ -1,0 +1,105 @@
+<template>
+  <v-app>
+    <v-app-bar ref="appBar" fixed shrink-on-scroll color="primary">
+      <v-skeleton-loader v-if="$accessor.feed.status.isLoading" type="image" />
+      <v-img
+        class="my-n1"
+        :aspect-ratio="1"
+        contain
+        position="center left"
+        height="inherit"
+        :src="headerImage"
+        @load="onImageChange"
+      />
+
+      <v-spacer />
+
+      <v-tooltip v-for="media in socialMedia" :key="media.url" bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn icon dark :href="media.url" target="_blank" v-on="on">
+            <v-icon>{{ media.icon }}</v-icon>
+          </v-btn>
+        </template>
+        <template>{{ media.name }}</template>
+      </v-tooltip>
+    </v-app-bar>
+    <v-content style="margin-top:128px">
+      <v-container>
+        <v-row align="center" justify="center">
+          <v-col class="text-center">
+            <v-scroll-x-transition leave-absolute>
+              <nuxt />
+            </v-scroll-x-transition>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+
+    <v-footer color="primary">
+          <v-btn small to="/about" text dark>Impressum</v-btn>
+    </v-footer>
+
+    <altDialog v-if="$accessor.feed.rss" no-fullscreen max-width="400">
+      <template v-slot:activator="{ on }">
+        <fab
+          :style="$accessor.activeEpisode.episode.title ? 'margin-bottom: 64px' : ''"
+          style="transition-property: box-shadow, transform, opacity, -webkit-transform, margin;"
+          extended="true"
+          icon="mdi-plus"
+          color="secondary"
+          v-on="on"
+        >abonnieren</fab>
+      </template>
+      <template v-slot:default="{ close }">
+        <v-card>
+          <v-card-title
+            class="text--truncate"
+            style="word-break: break-word;"
+          >{{ $accessor.feed.rss.title }} abonnieren per</v-card-title>
+          <v-card-text class="text--primary">
+            <v-btn
+              v-for="service in services"
+              :key="service.url"
+              class="my-1"
+              block
+              depressed
+              color="primary"
+              :href="service.url"
+              target="_blank"
+            >
+              <v-icon v-if="service.icon" class="mr-1">{{ service.icon }}</v-icon>
+              {{ service.name }}
+            </v-btn>
+            <v-btn
+              class="my-1"
+              block
+              depressed
+              color="primary"
+              :href="rssFeedLocation"
+              target="_blank"
+            >
+              <v-icon class="mr-1">mdi-rss</v-icon>RSS
+            </v-btn>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn color="secondary" outlined @click="close">schliessen</v-btn>
+          </v-card-actions>
+        </v-card>
+      </template>
+    </altDialog>
+
+    <v-slide-y-reverse-transition mode="out-in">
+      <v-footer
+        v-if="$accessor.activeEpisode.episode.title"
+        :key="$accessor.activeEpisode.episode.title"
+        padless
+        fixed
+      >
+        <player ref="player" />
+      </v-footer>
+    </v-slide-y-reverse-transition>
+  </v-app>
+</template>
+
+<script lang="ts" src="./default.ts"/>
