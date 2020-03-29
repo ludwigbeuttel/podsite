@@ -61,7 +61,6 @@ const nuxtConfig: Configuration = {
    ** Nuxt.js modules
    */
   modules: [
-    "@nuxtjs/proxy",
     "@nuxtjs/axios",
     "@nuxtjs/dotenv",
     "nuxt-compress",
@@ -74,10 +73,6 @@ const nuxtConfig: Configuration = {
     brotli: {
       threshold: 10240,
     },
-  },
-  axios: {
-    proxy: true,
-
   },
   vuetify: {
     optionsPath: "~/vuetify.options.ts",
@@ -92,6 +87,16 @@ const nuxtConfig: Configuration = {
    ** Build configuration
    */
   build: {
+    babel: {
+      presets: [
+        [
+          "@nuxt/babel-preset-app",
+          {
+            corejs: { version: 2 },
+          },
+        ],
+      ],
+    },
     transpile: [
       /typed-vuex/,
     ],
