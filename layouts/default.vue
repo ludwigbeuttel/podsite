@@ -8,7 +8,7 @@
         contain
         position="center left"
         height="inherit"
-        :src="headerImage"
+        src="/favicon.png"
         @load="onImageChange"
       />
 

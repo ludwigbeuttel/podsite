@@ -20,7 +20,7 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <template v-if="$accessor.feed.status.isLoading">
+      <template v-if="!$accessor.feed.status.isError && !$accessor.feed.status.isSuccess">
         <v-col cols="12" class="row py-0" style="justify-content: center">
           <v-row class="shrink" dense>
             <v-col v-for="n in 7" :key="'L1'+n" class="shrink">
@@ -135,7 +135,7 @@
             </v-fade-transition>
           </v-col>
         </template>
-        <template v-else>
+        <template v-else-if="$accessor.feed.status.isSuccess">
           <div class="display-1">keine Episoden gefunden</div>
         </template>
         <template v-if="pages > 0">

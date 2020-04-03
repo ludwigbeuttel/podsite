@@ -51,7 +51,7 @@ Want to use this for your own feed?
 
 ### short term
 
-* podcast search
+✔ podcast search
 * better error detection & configuration
 * add comments to the code
 * english translation / internationalization
