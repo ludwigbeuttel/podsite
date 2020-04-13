@@ -93,3 +93,5 @@ sw.*
 /static/favicon.ico
 /static/favicon.png
 .nuxt
+podcastData.ts
+pages/about.vue

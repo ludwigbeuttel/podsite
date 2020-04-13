@@ -74,6 +74,7 @@ const nuxtConfig: Configuration = {
       threshold: 10240,
     },
   },
+  ignore: ["**/*.template.*"],
   vuetify: {
     optionsPath: "~/vuetify.options.ts",
   },
