@@ -13,10 +13,10 @@
 
       <v-spacer />
 
-      <v-tooltip v-for="(media,i) in socialMedia" :key="i" bottom>
+      <v-tooltip v-for="(media, i) in socialMedia" :key="i" bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon dark :href="media.url" target="_blank" :aria-label="media.name" v-on="on">
-            <v-icon>{{ media.icon }}</v-icon>
+            <v-icon>mdi-{{ media.icon }}</v-icon>
           </v-btn>
         </template>
         <template>{{ media.name }}</template>
@@ -66,7 +66,7 @@
               :href="service.url"
               target="_blank"
             >
-              <v-icon v-if="service.icon" class="mr-1">{{ service.icon }}</v-icon>
+              <v-icon v-if="service.icon" class="mr-1">mdi-{{ service.icon }}</v-icon>
               {{ service.name }}
             </v-btn>
             <v-btn
