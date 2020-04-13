@@ -23,7 +23,7 @@ import { Vue, Component, Prop } from "nuxt-property-decorator"
 
 @Component
 export default class FAB extends Vue {
-  @Prop({ default: "accent" }) color!: string
+  @Prop({ default: "secondary" }) color!: string
   @Prop({ default: "" }) icon!: string
   @Prop({ default: true }) dark!: boolean
   @Prop({ default: false }) extended!: boolean

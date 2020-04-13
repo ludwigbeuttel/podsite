@@ -2,7 +2,8 @@
   <v-row justify="center" align="center" class="fill-height">
     <v-col class="justify-self" align-self="center" style="max-width:800px">
       <v-card>
-        <episodeDetails v-model="episode" :loading="state.isLoading">
+        <!-- {{$accessor.feed.rss.item}} -->
+        <episodeDetails v-model="episode" :loading="$fetchState.pending">
           <template v-slot:top>
             <v-btn icon large nuxt to="/" class="mr-1">
               <v-icon>mdi-arrow-left</v-icon>
@@ -114,50 +115,45 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+/* eslint-disable dot-notation */
 
-import State from "@/classes/state"
+import { Component } from "nuxt-property-decorator"
+
 import Episode from "@/classes/episode"
-import { EpisodeData } from "@/types"
 import episodeDetails from "@/components/episodeDetails.vue"
 import altDialog from "@/components/altDialog.vue"
 import episodeEdit from "@/components/episodeEdit.vue"
+import Mixin from "@/mixin"
 
+// @ts-ignore
 @Component({
   components: { episodeDetails, altDialog, episodeEdit },
+  fetchOnServer: false,
 })
-export default class EpByGUID extends Vue {
+export default class EpByGUID extends Mixin {
   episode = new Episode()
-  guid = ""
-  state = new State()
-
   editFeed = process.env.EDIT === "true"
 
-  created() {
-    this.state.loading()
+  mounted() {}
+
+  async fetch() {
+    if (!this.$accessor.feed.rss) {
+      await this.initFeed()
+    }
+    this.fetchFinished()
   }
 
-  mounted() {
-    this.guid = (this.$route.query.guid as string).replace(" ", "+")
-    this.onStateChange()
-  }
-
-  async onStateChange() {
+  fetchFinished() {
     try {
-      await this.$accessor.feed.initFeed()
+      const guid = (this.$route.query.guid as string).replace(" ", "+")
 
-      if (!this.guid) {
-        return this.$nuxt.error({
-          statusCode: 404,
-          message: "Episode nicht gefunden",
-        })
-      } else {
-        const data = this.$accessor.feed.rss.item.find((ep: EpisodeData) => {
+      if (guid) {
+        const data = this.$accessor.feed.rss!.item.find(ep => {
           if (ep.guid) {
             if (typeof ep.guid === "string") {
-              return ep.guid === this.guid
-            } else if (ep.guid!._ && typeof ep.guid!._ === "string") {
-              return ep.guid!._ === this.guid
+              return ep.guid === guid
+            } else if (ep.guid!["_"] && typeof ep.guid!["_"] === "string") {
+              return ep.guid!["_"] === guid
             } else {
               return false
             }
@@ -168,13 +164,17 @@ export default class EpByGUID extends Vue {
 
         if (data) {
           this.episode = new Episode(data)
-          this.state.success()
         } else {
           return this.$nuxt.error({
             statusCode: 404,
             message: "Episode nicht gefunden",
           })
         }
+      } else {
+        return this.$nuxt.error({
+          statusCode: 404,
+          message: "Episode nicht gefunden",
+        })
       }
     } catch {
       return this.$nuxt.error({
@@ -182,10 +182,6 @@ export default class EpByGUID extends Vue {
         message: "Episode nicht gefunden",
       })
     }
-  }
-
-  get status() {
-    return this.$accessor.state.feed.status || false
   }
 }
 </script>

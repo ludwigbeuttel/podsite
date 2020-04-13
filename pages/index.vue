@@ -1,18 +1,21 @@
 <template>
   <div>
     <v-row justify="center">
-      <v-col cols="12">
+      <v-col cols="12" xl="10">
         <v-card>
-          <v-card-text v-if="$accessor.feed.status.isLoading">
-            <v-skeleton-loader type="paragraph" />
-            <v-skeleton-loader type="paragraph" />
+          <v-card-text>
+            <v-skeleton-loader
+              :loading="$fetchState.pending"
+              type="paragraph"
+              transition="fade-transition"
+            >
+              <div
+                class="text--primary body-1"
+                style="white-space: pre-line"
+                v-html="$accessor.feed.rss ? $accessor.feed.rss.description : ''"
+              />
+            </v-skeleton-loader>
           </v-card-text>
-          <v-card-text
-            v-else-if="$accessor.feed.status.isSuccess"
-            class="text--primary body-1"
-            style="white-space: pre-line"
-            v-html="rss.description"
-          />
         </v-card>
       </v-col>
       <v-col cols="12" sm="8" md="6" lg="4">
@@ -20,7 +23,10 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <template v-if="!$accessor.feed.status.isError && !$accessor.feed.status.isSuccess">
+      <template v-if="$fetchState.error">
+        <div class="display-1">Fehler</div>
+      </template>
+      <template v-else-if="$fetchState.pending">
         <v-col cols="12" class="row py-0" style="justify-content: center">
           <v-row class="shrink" dense>
             <v-col v-for="n in 7" :key="'L1'+n" class="shrink">
@@ -30,9 +36,6 @@
         </v-col>
         <episodeSkeleton v-for="n in visible" :key="'L2'+n" class="ma-8" />
       </template>
-      <template v-else-if="$accessor.feed.status.isError">
-        <div class="display-1">Fehler</div>
-      </template>
       <template v-else>
         <template v-if="pages > 0">
           <v-col cols="12">
@@ -41,7 +44,7 @@
         </template>
         <template v-if="displayItems.length > 0">
           <v-col cols="12" class="pa-0">
-            <v-fade-transition group leave-absolute tag="div" class="row justify-center mx-0">
+            <transition-group name="list-items" tag="div" class="row justify-center mx-0">
               <episode
                 v-for="episode in displayItems"
                 :key="episode.guid['_']"
@@ -132,10 +135,10 @@
                   </altDialog>
                 </template>
               </episode>
-            </v-fade-transition>
+            </transition-group>
           </v-col>
         </template>
-        <template v-else-if="$accessor.feed.status.isSuccess">
+        <template v-else>
           <div class="display-1">keine Episoden gefunden</div>
         </template>
         <template v-if="pages > 0">

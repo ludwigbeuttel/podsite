@@ -198,9 +198,7 @@ export default class EpEdit extends Vue {
     }
 
     if (!this.episode.episodeNo) {
-      this.episode.episodeNo = this.$accessor.feed.rss.item.length
-        ? parseInt(this.$accessor.feed.rss.item[0]["itunes:episode"], 10) + 1
-        : 1
+      this.episode.episodeNo = this.$accessor.feed.rss!.item.length
     }
   }
 

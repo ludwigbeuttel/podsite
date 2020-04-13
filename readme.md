@@ -39,7 +39,7 @@ Want to use this for your own feed?
 1. make sure you have a current version of nodeJS installed
 2. Enter your podcasts's data in "podcatsData.ts". Only icon from <https://materialdesignicons.com/> are supported and have to be prefixed with "mdi-". Feed free to add or remove values from the array.
 3. Create/modify the .env file in the project's root folder and add FEEDLOCATION=your_feed_url
-4. Add a "favicon.ico" and a "favicon.png" file to the "static" folder. This is usually just your podcast art.
+4. Add your "favicon.ico" file to the "static" folder. This is usually just your podcast art.
 5. add legal information under "./pages/about.vue"
 6. theme your website (optional): Some theming is done automatically (including extracting colors from your podcast art) but you can customnize your theme further using the "vuetify.options.ts" file. For options, visit <https://vuetifyjs.com/en/customization/theme/>
 7. Install dependencies using the command "npm install" and start the application in development mode using "npm run serve"

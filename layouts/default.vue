@@ -1,14 +1,13 @@
 <template>
   <v-app>
     <v-app-bar ref="appBar" fixed shrink-on-scroll color="primary">
-      <v-skeleton-loader v-if="$accessor.feed.status.isLoading" type="image" />
       <v-img
         class="my-n1"
         :aspect-ratio="1"
         contain
         position="center left"
         height="inherit"
-        src="/favicon.png"
+        :src="headerImage"
         @load="onImageChange"
       />
 

@@ -24,7 +24,7 @@
       <v-list-item class="mt-1 text-left" style="min-height: unset">
         <v-list-item-content>
           <v-list-item-subtitle>Shownotes</v-list-item-subtitle>
-          <v-list-item-title class="content" style="white-space: pre-wrap" v-html="value.content" />
+          <v-list-item-title class="content" style="white-space: normal; max-height: calc(100vh - 330px); overflow-y: auto;" v-html="value.content" />
         </v-list-item-content>
       </v-list-item>
 

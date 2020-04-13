@@ -1,4 +1,4 @@
-import { Component, Vue } from "nuxt-property-decorator"
+import { Component } from "nuxt-property-decorator"
 
 import { EpisodeData } from "@/types"
 import episode from "@/components/episode.vue"
@@ -6,14 +6,17 @@ import episodeEdit from "@/components/episodeEdit.vue"
 import episodeSkeleton from "@/components/episodeSkeleton.vue"
 import fab from "@/components/fab.vue"
 import altDialog from "@/components/altDialog.vue"
-import Episode from "~/classes/episode"
+import Episode from "@/classes/episode"
+import Mixin from "@/mixin"
 
+// @ts-ignore
 @Component(
   {
     components: { episode, episodeSkeleton, episodeEdit, fab, altDialog },
+    fetchOnServer: false,
   },
 )
-export default class Index extends Vue {
+export default class Index extends Mixin {
   page = 1;
   visible = 8;
 
@@ -23,13 +26,13 @@ export default class Index extends Vue {
 
   editFeed = process.env.EDIT === "true"
 
-  get searchItems() {
-    let items = (this.rss.item || []) as EpisodeData[]
+  get searchItems(): EpisodeData[] {
+    let items = (this.$accessor.feed.rss || { item: [] }).item
     if (this.search) {
       items = items.filter(episode =>
-        episode.title.includes(this.search) ||
-        (episode.description || "").includes(this.search) ||
-        (episode["itunes:summary"] || "").includes(this.search),
+        episode.title.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()) ||
+        (episode.description || "").toLocaleLowerCase().includes(this.search.toLocaleLowerCase()) ||
+        (episode["itunes:summary"] || "").toLocaleLowerCase().includes(this.search.toLocaleLowerCase()),
       )
     }
     return items
@@ -46,7 +49,7 @@ export default class Index extends Vue {
       this.max--
     }
 
-    return this.searchItems.slice(this.min, this.max).map((episodeData: EpisodeData) => new Episode(episodeData))
+    return this.searchItems.slice(this.min, this.max).map(episodeData => new Episode(episodeData))
   }
 
   get showImages() {
@@ -57,15 +60,16 @@ export default class Index extends Vue {
     return parseInt((this.searchItems.length / this.visible).toFixed(0))
   }
 
-  get rss() {
-    return this.$accessor.feed.rss || false
-  }
-
   mounted() {
     const urlArray = document.location.href.split("/")
     if (urlArray[3]) {
       this.search = urlArray[urlArray.length - 1]
     }
-    this.$accessor.feed.initFeed()
+  }
+
+  async fetch() {
+    if (!this.$accessor.feed.rss) {
+      await this.initFeed()
+    }
   }
 }

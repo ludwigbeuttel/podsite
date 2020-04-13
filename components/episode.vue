@@ -96,7 +96,9 @@
         <template v-slot:activator="{ }" />
         <template v-slot:default="{ close }">
           <v-card width="800">
-            <episodeDetails v-model="value" :show-image="showImage" />
+            <v-card-text class="pa-0 text--primary">
+              <episodeDetails v-model="value" :show-image="showImage" />
+            </v-card-text>
 
             <v-card-actions>
               <v-btn color="secondary" text nuxt :to="`/episode?guid=${value.guid._}`">

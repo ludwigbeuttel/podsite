@@ -1,0 +1,24 @@
+.list-items-move,
+.list-items-leave-active,
+.list-items-enter-active {
+  transition-property: transform opacity;
+  transition-duration: 0.28s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.list-items-leave-active {
+  position: absolute;
+}
+
+.list-items-enter-to {
+  opacity: 1;
+}
+.list-items-enter {
+  opacity: 0;
+}
+
+.list-items-leave-to {
+  opacity: 0;
+}
+.list-items-leave {
+  opacity: 1;
+}

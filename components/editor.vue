@@ -143,7 +143,6 @@ import {
   // @ts-ignore
 } from "tiptap-extensions"
 
-import ApiCall from "@/classes/apiCall"
 import altDialog from "@/components/altDialog.vue"
 
 @Component({ components: { EditorContent, EditorMenuBar, altDialog } })
@@ -170,7 +169,6 @@ export default class TipTapEditor extends Vue {
     content: this.value,
   })
 
-  uploadState = new ApiCall()
   async showImagePrompt(e: any, command?: any): Promise<void> {
     try {
       // @ts-ignore

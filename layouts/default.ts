@@ -12,14 +12,6 @@ import { Platform, Social } from "@/types"
   components: { player, fab, altDialog },
 })
 export default class DefaultLayout extends Vue {
-  created() {
-  }
-
-  mounted() {
-    this.$accessor.feed.initFeed()
-    this.onImageChange()
-  }
-
   get headerImage() {
     if (this.$accessor.feed.rss) {
       if (this.$accessor.feed.rss.image) {
@@ -39,18 +31,20 @@ export default class DefaultLayout extends Vue {
   palette: null | Palette = null;
 
   @Watch("headerImage") async onImageChange() {
-    const palette = await Vibrant.from("/favicon.png").getSwatches()
+    if (process.env.NODE_ENV !== "development") {
+      const palette = await Vibrant.from(this.headerImage).getSwatches()
 
-    this.palette = palette
+      this.palette = palette
 
-    if (palette.DarkVibrant) {
-      this.$vuetify.theme.themes.light.primary = palette.DarkVibrant.hex
-      this.$vuetify.theme.themes.dark.primary = palette.DarkVibrant.hex
-    }
+      if (palette.DarkVibrant) {
+        this.$vuetify.theme.themes.light.primary = palette.DarkVibrant.hex
+        this.$vuetify.theme.themes.dark.primary = palette.DarkVibrant.hex
+      }
 
-    if (palette.Vibrant) {
-      this.$vuetify.theme.themes.light.secondary = palette.Vibrant.hex
-      this.$vuetify.theme.themes.dark.secondary = palette.Vibrant.hex
+      if (palette.Vibrant) {
+        this.$vuetify.theme.themes.light.secondary = palette.Vibrant.hex
+        this.$vuetify.theme.themes.dark.secondary = palette.Vibrant.hex
+      }
     }
   }
 
