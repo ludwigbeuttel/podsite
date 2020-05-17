@@ -81,7 +81,7 @@
               color="secondary"
               :href="value.enclosureData.url"
               download
-              aria-label="download episode"
+              aria-label="Episode herunterladen"
               icon
               @click.stop
               v-on="on"

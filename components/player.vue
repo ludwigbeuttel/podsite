@@ -81,7 +81,14 @@
       <v-col class="shrink">
         <v-tooltip top>
           <template v-slot:activator="{ on }">
-            <v-btn icon :href="episode.enclosureData.url" download aria-label="download episode" @click.stop v-on="on">
+            <v-btn
+              icon
+              :href="episode.enclosureData.url"
+              download
+              aria-label="Episode herunterladen"
+              @click.stop
+              v-on="on"
+            >
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </template>

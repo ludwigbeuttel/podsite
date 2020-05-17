@@ -97,7 +97,7 @@
                     icon
                     :href="episode.enclosureData.url"
                     download
-                    aria-label="download episode"
+                    aria-label="Episode herunterladen"
                     @click.stop
                     v-on="on"
                   >
