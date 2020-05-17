@@ -88,16 +88,6 @@ const nuxtConfig: Configuration = {
    ** Build configuration
    */
   build: {
-    babel: {
-      presets: [
-        [
-          "@nuxt/babel-preset-app",
-          {
-            corejs: { version: 2 },
-          },
-        ],
-      ],
-    },
     transpile: [
       /typed-vuex/,
     ],
