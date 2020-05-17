@@ -18,4 +18,8 @@ export default {
       },
     },
   },
+  defaultAssets: {
+    font: { family: "Roboto" },
+    icons: false,
+  },
 }
