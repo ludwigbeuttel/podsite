@@ -60,7 +60,6 @@ export default class FAB extends Vue {
   }
 
   get isXs(): boolean {
-    // @ts-ignore
     return !!this.$vuetify.breakpoint.xs
   }
 }

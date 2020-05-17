@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar ref="appBar" fixed shrink-on-scroll color="primary">
+    <v-app-bar ref="appBar" fixed shrink-on-scroll flat color="primary">
       <v-img
         class="my-n1"
         :aspect-ratio="1"
@@ -15,7 +15,7 @@
 
       <v-tooltip v-for="(media, i) in socialMedia" :key="i" bottom>
         <template v-slot:activator="{ on }">
-          <v-btn icon dark :href="media.url" target="_blank" :aria-label="media.name" v-on="on">
+          <v-btn icon dark :href="media.url" target="_blank" rel="noopener noreferrer" :aria-label="media.name" v-on="on">
             <v-icon>mdi-{{ media.icon }}</v-icon>
           </v-btn>
         </template>
@@ -50,11 +50,11 @@
         >abonnieren</fab>
       </template>
       <template v-slot:default="{ close }">
-        <v-card>
+        <v-card outlined>
           <v-card-title
             class="text--truncate"
             style="word-break: break-word;"
-          >{{ $accessor.feed.rss.title }} abonnieren per</v-card-title>
+          >{{ $accessor.feed.rss.title }} abonnieren mit</v-card-title>
           <v-card-text class="text--primary">
             <v-btn
               v-for="service in services"
@@ -65,6 +65,7 @@
               color="primary"
               :href="service.url"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <v-icon v-if="service.icon" class="mr-1">mdi-{{ service.icon }}</v-icon>
               {{ service.name }}

@@ -1,6 +1,6 @@
 <template>
   <v-hover v-slot:default="{ hover }">
-    <v-card width="400" style="height:fit-content" @click="detailsOpen = true">
+    <v-card width="400" style="height:fit-content" outlined @click="detailsOpen = true">
       <template v-if="value.image && showImage">
         <v-img width="400" :aspect-ratio="1" :src="value.image" style="z-index:2">
           <v-col
@@ -10,9 +10,9 @@
           <v-card-title
             v-resize="setTitleHeight"
             class="imageTransforms topTitle"
-            style="position:absolute; bottom:0; max-width:inherit; word-break: break-word;"
+            style="position: absolute; bottom: 0; max-width: inherit; word-break: break-word;"
             :class="hover ? 'active' : 'inactive titlePadding'"
-            :style="hover ? 'transform: translateY('+titleHeight+'px);' : ''"
+            :style="hover ? `transform: translateY(${titleHeight}px);` : ''"
           >
             <span
               class="imageTransforms secondary white--text headline font-weight-medium"
@@ -25,7 +25,7 @@
           class="imageTransforms bottomTitle"
           style="word-break: break-word;"
           :class="hover ? 'active' : 'inactive titlePadding'"
-          :style="hover ? '' : 'margin-top: -'+titleHeight+'px'"
+          :style="hover ? '' : `margin-top: -${titleHeight}px`"
         >
           <span class="headline imageTransforms font-weight-medium">{{ value.title }}</span>
         </v-card-title>
@@ -44,7 +44,7 @@
       >
         <v-list-item-content>
           <v-list-item-subtitle>Beschreibung</v-list-item-subtitle>
-          <v-list-item-title style="white-space: pre-line" v-html="value.description" />
+          <v-list-item-title style="white-space: pre-line;" v-html="value.description" />
         </v-list-item-content>
       </v-list-item>
 
@@ -81,6 +81,7 @@
               color="secondary"
               :href="value.enclosureData.url"
               download
+              aria-label="download episode"
               icon
               @click.stop
               v-on="on"
@@ -93,9 +94,8 @@
       </v-card-actions>
 
       <altDialog v-model="detailsOpen" no-fullscreen scrollable max-width="800">
-        <template v-slot:activator="{ }" />
         <template v-slot:default="{ close }">
-          <v-card width="800">
+          <v-card width="800" outlined>
             <v-card-text class="pa-0 text--primary">
               <episodeDetails v-model="value" :show-image="showImage" />
             </v-card-text>

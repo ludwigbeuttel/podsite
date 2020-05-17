@@ -2,7 +2,7 @@
   <div>
     <v-row justify="center">
       <v-col cols="12" xl="10">
-        <v-card>
+        <v-card outlined>
           <v-card-text>
             <v-skeleton-loader
               :loading="$fetchState.pending"
@@ -18,8 +18,8 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" sm="8" md="6" lg="4">
-        <v-text-field v-model="search" label="Suche" clearable solo />
+      <v-col cols="12" sm="8" md="6" lg="4" class="mb-3">
+        <v-text-field v-model="search" outlined label="Suche" prepend-inner-icon="mdi-magnify" clearable hide-details />
       </v-col>
     </v-row>
     <v-row justify="center">

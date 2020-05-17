@@ -100,7 +100,7 @@
                   <v-btn
                     outlined
                     color="secondary"
-                    @click="[commands.link({href: hyperlink}),linkDialog=false,hyperlink='']"
+                    @click="[commands.link({href: hyperlink}), linkDialog = false, hyperlink='']"
                   >OK</v-btn>
                 </v-card-actions>
               </v-card>

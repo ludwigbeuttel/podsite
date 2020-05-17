@@ -1,8 +1,7 @@
 <template>
   <v-row justify="center" align="center" class="fill-height">
     <v-col class="justify-self" align-self="center" style="max-width:800px">
-      <v-card>
-        <!-- {{$accessor.feed.rss.item}} -->
+      <v-card outlined>
         <episodeDetails v-model="episode" :loading="$fetchState.pending">
           <template v-slot:top>
             <v-btn icon large nuxt to="/" class="mr-1">
@@ -98,6 +97,7 @@
                     icon
                     :href="episode.enclosureData.url"
                     download
+                    aria-label="download episode"
                     @click.stop
                     v-on="on"
                   >
@@ -125,7 +125,6 @@ import altDialog from "@/components/altDialog.vue"
 import episodeEdit from "@/components/episodeEdit.vue"
 import Mixin from "@/mixin"
 
-// @ts-ignore
 @Component({
   components: { episodeDetails, altDialog, episodeEdit },
   fetchOnServer: false,

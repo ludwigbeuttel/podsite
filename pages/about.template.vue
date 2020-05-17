@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center" class="fill-height">
     <v-col class="justify-self" align-self="center" style="max-width:800px">
-      <v-card>
+      <v-card outlined>
         <v-card-title class="headline">
           <v-btn icon nuxt to="/">
             <v-icon>mdi-arrow-left</v-icon>

@@ -9,12 +9,12 @@ export const services: Platform[] = [
   {
     name: "Apple Podcasts",
     url: "",
-    icon: "mdi-apple",
+    icon: "apple",
   },
   {
     name: "Google Podcasts",
     url: "",
-    icon: "mdi-google-podcast",
+    icon: "google-podcast",
   },
 ]
 
@@ -22,17 +22,22 @@ export const socialMedia: Social[] = [
   {
     name: "Twitter",
     url: "",
-    icon: "mdi-twitter",
+    icon: "twitter",
+  },
+  {
+    name: "YouTube",
+    url: "",
+    icon: "youtube",
   },
   {
     name: "Twitch",
     url: "",
-    icon: "mdi-twitch",
+    icon: "twitch",
   },
   {
     name: "E-Mail",
     url: "",
-    icon: "mdi-email",
+    icon: "email",
   },
 ]
 

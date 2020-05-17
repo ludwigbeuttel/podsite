@@ -4,8 +4,7 @@
       <v-skeleton-loader class="my-4" tile type="list-item-avatar" />
       <v-skeleton-loader class="mt-4" type="list-item-three-line" />
       <v-skeleton-loader class="mt-n5" type="list-item-three-line" />
-      <v-skeleton-loader type="list-item-two-line" />
-      <v-skeleton-loader type="list-item-two-line" />
+      <v-skeleton-loader type="list-item-two-line, list-item-two-line" />
     </div>
     <div v-else>
       <v-card-title
@@ -14,7 +13,7 @@
       >
         <v-row class="mx-0" style="flex-wrap: nowrap">
           <slot name="top" />
-          <v-avatar v-if="value.image && showImage" class="mr-4" tile :src="value.image">
+          <v-avatar v-if="value.image && showImage" class="mr-4" tile>
             <v-img :src="value.image" />
           </v-avatar>
           <div style="align-self: center">{{ value.title }}</div>

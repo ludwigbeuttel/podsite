@@ -1,5 +1,8 @@
 export default {
   customVariables: ["~/assets/variables.scss"],
+  icons: {
+    iconfont: "mdiSvg",
+  },
   theme: {
     dark: false,
     themes: {
@@ -9,7 +12,7 @@ export default {
       },
       light: {
         primary: "#0000a8",
-        secondary: "#ff005a"
+        secondary: "#ff005a",
       },
     },
   },

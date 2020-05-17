@@ -66,14 +66,14 @@
           <template v-slot:activator="{ on: menu }">
             <v-tooltip top>
               <template v-slot:activator="{ on: tooltip }">
-                <v-btn icon v-on="{ ...tooltip, ...menu }">
+                <v-btn aria-label="Detials öffnen" icon v-on="{ ...tooltip, ...menu }">
                   <v-icon>mdi-clipboard-text</v-icon>
                 </v-btn>
               </template>
               <template>Details</template>
             </v-tooltip>
           </template>
-          <v-card>
+          <v-card outlined>
             <episodeDetails v-model="episode" />
           </v-card>
         </v-menu>
@@ -81,7 +81,7 @@
       <v-col class="shrink">
         <v-tooltip top>
           <template v-slot:activator="{ on }">
-            <v-btn icon :href="episode.enclosureData.url" download @click.stop v-on="on">
+            <v-btn icon :href="episode.enclosureData.url" download aria-label="download episode" @click.stop v-on="on">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </template>

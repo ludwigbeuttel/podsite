@@ -53,7 +53,8 @@ export default class Index extends Mixin {
   }
 
   get showImages() {
-    return [...new Set(this.displayItems.map((item: Episode) => item.image))].length > 1
+    return true
+    // return [...new Set(this.displayItems.map((item: Episode) => item.image))].length > 1
   }
 
   get pages() {

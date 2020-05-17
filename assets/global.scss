@@ -22,3 +22,25 @@
 .list-items-leave {
   opacity: 1;
 }
+
+.v-pagination__item,
+.v-pagination__navigation {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.theme--light {
+  .v-pagination__item,
+  .v-pagination__navigation {
+    // background-color: #f5f5f5 !important;
+    border: thin solid rgba(0, 0, 0, 0.42) !important;
+  }
+}
+
+.theme--dark {
+  .v-pagination__item,
+  .v-pagination__navigation {
+    // background-color: #1E1E1E !important;
+    border: thin solid rgba(255, 255, 255, 0.7) !important;
+  }
+}
