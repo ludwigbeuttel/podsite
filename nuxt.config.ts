@@ -4,7 +4,8 @@ import { Configuration } from "@nuxt/types"
 import { description, name } from "./podcastData"
 
 const nuxtConfig: Configuration = {
-  mode: "universal",
+  ssr: true,
+  target: "static",
   head: {
     htmlAttrs: {
       lang: "de",
@@ -22,58 +23,26 @@ const nuxtConfig: Configuration = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-  render: {
-    // compressor: isProduction ? shrinkRay() : { threshold: 0 },
-    http2: {
-      pushAssets: (_req, _res, publicPath, preloadFiles) => preloadFiles
-        .filter(f => f.asType === "script" && f.file === "runtime.js")
-        .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`),
-    },
-  },
   modern: true,
-  /*
-   ** Customize the progress-bar color
-   */
+  components: true,
   loading: { color: "#fff" },
-  /*
-   ** Global CSS
-   */
   css: [
     "~/assets/global.scss",
   ],
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: [
     { src: "~/plugins/themeSwitch.ts", mode: "client" },
     // { src: "~/plugins/forceDevtools.ts", mode: "all" },
   ],
-  /*
-   ** Nuxt.js dev-modules
-   */
   buildModules: [
     "nuxt-typed-vuex",
     "@nuxt/typescript-build",
     "@nuxtjs/vuetify",
     "@nuxtjs/eslint-module",
   ],
-  /*
-   ** Nuxt.js modules
-   */
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/dotenv",
-    "nuxt-compress",
-    "@nuxtjs/component-cache",
   ],
-  "nuxt-compress": {
-    gzip: {
-      cache: true,
-    },
-    brotli: {
-      threshold: 10240,
-    },
-  },
   ignore: ["**/*.template.*"],
   vuetify: {
     optionsPath: "~/vuetify.options.ts",
@@ -84,20 +53,10 @@ const nuxtConfig: Configuration = {
       handler: "~/api/externalFeed.ts",
     },
   ],
-  /*
-   ** Build configuration
-   */
   build: {
     transpile: [
       /typed-vuex/,
     ],
-    optimizeCSS: true,
-    // extractCSS: true,
-    extend(config: any, ctx: any) {
-      if (ctx.isDev) {
-        config.devtool = ctx.isClient ? "source-map" : "inline-source-map"
-      }
-    },
   },
 }
 

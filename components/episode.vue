@@ -93,11 +93,11 @@
         </v-tooltip>
       </v-card-actions>
 
-      <altDialog v-model="detailsOpen" no-fullscreen scrollable max-width="800">
+      <alt-dialog v-model="detailsOpen" no-fullscreen scrollable max-width="800">
         <template v-slot:default="{ close }">
           <v-card width="800" outlined>
             <v-card-text class="pa-0 text--primary">
-              <episodeDetails v-model="value" :show-image="showImage" />
+              <episode-details v-model="value" :show-image="showImage" />
             </v-card-text>
 
             <v-card-actions>
@@ -109,7 +109,7 @@
             </v-card-actions>
           </v-card>
         </template>
-      </altDialog>
+      </alt-dialog>
     </v-card>
   </v-hover>
 </template>
@@ -118,10 +118,8 @@
 import { Component, Vue, Prop } from "nuxt-property-decorator"
 
 import Episode from "@/classes/episode"
-import altDialog from "@/components/altDialog.vue"
-import episodeDetails from "@/components/episodeDetails.vue"
 
-@Component({ components: { altDialog, episodeDetails } })
+@Component
 export default class Ep extends Vue {
   @Prop() value!: Episode
   @Prop({ default: true }) showImage!: boolean

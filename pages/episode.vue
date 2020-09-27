@@ -1,8 +1,11 @@
 <template>
   <v-row justify="center" align="center" class="fill-height">
-    <v-col class="justify-self" align-self="center" style="max-width:800px">
+    <v-col class="justify-self" align-self="center" style="max-width: 800px">
       <v-card outlined>
-        <episodeDetails v-model="episode" :loading="$fetchState.pending">
+        <episode-details
+          v-model="episode"
+          :loading="$fetchState.pending"
+        >
           <template v-slot:top>
             <v-btn icon large nuxt to="/" class="mr-1">
               <v-icon>mdi-arrow-left</v-icon>
@@ -15,81 +18,10 @@
                 color="secondary"
                 @click.stop="$accessor.activeEpisode.changeEpisode(episode)"
               >
-                <v-icon>mdi-play</v-icon>&nbsp;abspielen
+                <v-icon>mdi-play</v-icon>
+                &nbsp;abspielen
               </v-btn>
               <v-spacer />
-              <template v-if="editFeed">
-                <altDialog no-fullscreen max-width="500">
-                  <template v-slot:activator="{ on: dialog }">
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on: tooltip }">
-                        <v-btn icon color="secondary" @click.stop v-on="{ ...tooltip, ...dialog }">
-                          <v-icon>mdi-delete</v-icon>
-                        </v-btn>
-                      </template>
-                      <template>löschen</template>
-                    </v-tooltip>
-                  </template>
-                  <template v-slot:default="{ close }">
-                    <v-card>
-                      <v-card-title>{{ episode.title }} löschen</v-card-title>
-                      <v-card-text>
-                        Sind Sie sich sicher dass Sie die Episode löschen möchen?
-                        <v-checkbox color="secondary" label="Audiodatei ebenfalls löschen" />
-                      </v-card-text>
-                      <v-card-actions>
-                        <v-spacer />
-                        <v-btn color="secondary" text @click="close">abbrechen</v-btn>
-                        <v-btn color="secondary" outlined @click="close">löschen</v-btn>
-                      </v-card-actions>
-                    </v-card>
-                  </template>
-                </altDialog>
-                <altDialog
-                  scrollable
-                  max-width="500"
-                  transition="scale-transition"
-                  origin="bottom right"
-                >
-                  <template v-slot:activator="{ on: dialog }">
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on: tooltip }">
-                        <v-btn icon color="secondary" @click.stop v-on="{ ...tooltip, ...dialog }">
-                          <v-icon>mdi-pencil</v-icon>
-                        </v-btn>
-                      </template>
-                      <template>bearbeiten</template>
-                    </v-tooltip>
-                  </template>
-                  <template v-slot:default="{ close }">
-                    <v-card>
-                      <v-card-title :class="{'pa-0': $vuetify.breakpoint.xs}">
-                        <template v-if="$vuetify.breakpoint.xs">
-                          <v-toolbar color="primary" dark>
-                            <v-btn icon @click="close">
-                              <v-icon>mdi-close</v-icon>
-                            </v-btn>
-                            <v-toolbar-title>{{ episode.title }} bearbeiten</v-toolbar-title>
-                            <v-spacer />
-                            <v-btn depressed color="secondary" @click="close">Speichern</v-btn>
-                          </v-toolbar>
-                        </template>
-                        <template v-else>{{ episode.title }} bearbeiten</template>
-                      </v-card-title>
-                      <v-divider v-if="!$vuetify.breakpoint.xs" />
-                      <v-card-text class="pa-0">
-                        <episodeEdit v-model="episode" />
-                      </v-card-text>
-                      <v-divider />
-                      <v-card-actions v-if="!$vuetify.breakpoint.xs">
-                        <v-spacer />
-                        <v-btn color="secondary" text @click="close">abbrechen</v-btn>
-                        <v-btn color="secondary" outlined @click="close">speichern</v-btn>
-                      </v-card-actions>
-                    </v-card>
-                  </template>
-                </altDialog>
-              </template>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
                   <v-btn
@@ -108,7 +40,7 @@
               </v-tooltip>
             </v-card-actions>
           </template>
-        </episodeDetails>
+        </episode-details>
       </v-card>
     </v-col>
   </v-row>
@@ -120,20 +52,12 @@
 import { Component } from "nuxt-property-decorator"
 
 import Episode from "@/classes/episode"
-import episodeDetails from "@/components/episodeDetails.vue"
-import altDialog from "@/components/altDialog.vue"
-import episodeEdit from "@/components/episodeEdit.vue"
-import Mixin from "@/mixin"
+import PageMixin from "@/mixin"
 
-@Component({
-  components: { episodeDetails, altDialog, episodeEdit },
-  fetchOnServer: false,
-})
-export default class EpByGUID extends Mixin {
+// @ts-ignore
+@Component({ scrollToTop: true, fetchOnServer: false })
+export default class EpByGUID extends PageMixin {
   episode = new Episode()
-  editFeed = process.env.EDIT === "true"
-
-  mounted() {}
 
   async fetch() {
     if (!this.$accessor.feed.rss) {
@@ -144,6 +68,7 @@ export default class EpByGUID extends Mixin {
 
   fetchFinished() {
     try {
+      // @ts-ignore
       const guid = (this.$route.query.guid as string).replace(" ", "+")
 
       if (guid) {
@@ -163,19 +88,23 @@ export default class EpByGUID extends Mixin {
 
         if (data) {
           this.episode = new Episode(data)
+          console.info(this.episode)
         } else {
+          // @ts-ignore
           return this.$nuxt.error({
             statusCode: 404,
             message: "Episode nicht gefunden",
           })
         }
       } else {
+        // @ts-ignore
         return this.$nuxt.error({
           statusCode: 404,
           message: "Episode nicht gefunden",
         })
       }
     } catch {
+      // @ts-ignore
       return this.$nuxt.error({
         statusCode: 404,
         message: "Episode nicht gefunden",

@@ -2,15 +2,10 @@ import { Vue, Component, Watch } from "nuxt-property-decorator"
 import Vibrant from "node-vibrant"
 import { Palette } from "node-vibrant/lib/color"
 
-import player from "@/components/player.vue"
-import fab from "@/components/fab.vue"
-import altDialog from "@/components/altDialog.vue"
 import { services, socialMedia } from "@/podcastData"
 import { Platform, Social } from "@/types"
 
-@Component({
-  components: { player, fab, altDialog },
-})
+@Component
 export default class DefaultLayout extends Vue {
   get headerImage() {
     if (this.$accessor.feed.rss) {

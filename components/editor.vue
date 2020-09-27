@@ -87,7 +87,7 @@
               </v-icon>
             </v-btn>
 
-            <altDialog v-model="linkDialog" max-width="400" no-fullscreen>
+            <alt-dialog v-model="linkDialog" max-width="400" no-fullscreen>
               <v-card>
                 <v-list-item three-line>
                   <v-list-item-content>
@@ -104,7 +104,7 @@
                   >OK</v-btn>
                 </v-card-actions>
               </v-card>
-            </altDialog>
+            </alt-dialog>
 
             <v-btn text active-class="none" @click="$refs.upload.click()">
               <v-icon>mdi-image</v-icon>
@@ -143,9 +143,7 @@ import {
   // @ts-ignore
 } from "tiptap-extensions"
 
-import altDialog from "@/components/altDialog.vue"
-
-@Component({ components: { EditorContent, EditorMenuBar, altDialog } })
+@Component({ components: { EditorContent, EditorMenuBar } })
 export default class TipTapEditor extends Vue {
   @Prop() value!: string
   @Prop() label!: string

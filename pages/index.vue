@@ -34,7 +34,9 @@
             </v-col>
           </v-row>
         </v-col>
-        <episodeSkeleton v-for="n in visible" :key="'L2'+n" class="ma-8" />
+        <v-row justify="center">
+        <episode-skeleton v-for="n in visible" :key="'L2'+n" class="ma-6" />
+        </v-row>
       </template>
       <template v-else>
         <template v-if="pages > 0">
@@ -51,90 +53,7 @@
                 :value="episode"
                 :show-image="showImages"
                 class="ma-6"
-              >
-                <template v-if="editFeed">
-                  <altDialog no-fullscreen max-width="500">
-                    <template v-slot:activator="{ on: dialog }">
-                      <v-tooltip bottom>
-                        <template v-slot:activator="{ on: tooltip }">
-                          <v-btn
-                            icon
-                            color="secondary"
-                            @click.stop
-                            v-on="{ ...tooltip, ...dialog }"
-                          >
-                            <v-icon>mdi-delete</v-icon>
-                          </v-btn>
-                        </template>
-                        <template>löschen</template>
-                      </v-tooltip>
-                    </template>
-                    <template v-slot:default="{ close }">
-                      <v-card>
-                        <v-card-title>{{ episode.title }} löschen</v-card-title>
-                        <v-card-text>
-                          Sind Sie sich sicher dass Sie die Episode löschen möchen?
-                          <v-checkbox color="secondary" label="Audiodatei ebenfalls löschen" />
-                        </v-card-text>
-                        <v-card-actions>
-                          <v-spacer />
-                          <v-btn color="secondary" text @click="close">abbrechen</v-btn>
-                          <v-btn color="secondary" outlined @click="close">löschen</v-btn>
-                        </v-card-actions>
-                      </v-card>
-                    </template>
-                  </altDialog>
-                  <altDialog
-                    scrollable
-                    max-width="500"
-                    transition="scale-transition"
-                    origin="bottom right"
-                  >
-                    <template v-slot:activator="{ on: dialog }">
-                      <v-tooltip bottom>
-                        <template v-slot:activator="{ on: tooltip }">
-                          <v-btn
-                            icon
-                            color="secondary"
-                            @click.stop
-                            v-on="{ ...tooltip, ...dialog }"
-                          >
-                            <v-icon>mdi-pencil</v-icon>
-                          </v-btn>
-                        </template>
-                        <template>bearbeiten</template>
-                      </v-tooltip>
-                    </template>
-                    <template v-slot:default="{ close }">
-                      <v-card>
-                        <v-card-title :class="{'pa-0': $vuetify.breakpoint.xs}">
-                          <template v-if="$vuetify.breakpoint.xs">
-                            <v-toolbar color="primary" dark>
-                              <v-btn icon @click="close">
-                                <v-icon>mdi-close</v-icon>
-                              </v-btn>
-                              <v-toolbar-title>{{ episode.title }} bearbeiten</v-toolbar-title>
-                              <v-spacer />
-                              <v-btn depressed color="secondary" @click="close">Speichern</v-btn>
-                            </v-toolbar>
-                          </template>
-                          <template v-else>{{ episode.title }} bearbeiten</template>
-                        </v-card-title>
-                        <v-divider v-if="!$vuetify.breakpoint.xs" />
-                        <v-card-text class="pa-0">
-                          <episodeEdit :value="episode" />
-                        </v-card-text>
-                        <v-divider />
-                        <v-card-actions v-if="!$vuetify.breakpoint.xs">
-                          <v-spacer />
-                          <v-btn color="secondary" text @click="close">abbrechen</v-btn>
-                          <v-btn color="secondary" outlined @click="close">speichern</v-btn>
-                        </v-card-actions>
-                      </v-card>
-                    </template>
-                  </altDialog>
-                </template>
-              </episode>
+              />
             </transition-group>
           </v-col>
         </template>
@@ -147,59 +66,78 @@
               v-model="page"
               total-visible="15"
               :length="pages"
-              @input="$vuetify.goTo($refs.topPagination,{offset:68})"
+              @input="$vuetify.goTo($refs.topPagination, {offset:68})"
             />
           </v-col>
         </template>
       </template>
     </v-row>
-
-    <altDialog
-      v-if="editFeed"
-      scrollable
-      max-width="500"
-      transition="scale-transition"
-      origin="bottom right"
-    >
-      <template v-slot:activator="{ on }">
-        <fab
-          :style="$accessor.activeEpisode.episode.title ? 'margin-bottom: 128px' : 'margin-bottom: 64px'"
-          style="transition-property: box-shadow, transform, opacity, -webkit-transform, margin;"
-          extended="true"
-          icon="mdi-plus"
-          color="secondary"
-          v-on="on"
-        >Episode hinzufügen</fab>
-      </template>
-      <template v-slot:default="{ close }">
-        <v-card>
-          <v-card-title :class="{'pa-0': $vuetify.breakpoint.xs}">
-            <template v-if="$vuetify.breakpoint.xs">
-              <v-toolbar color="primary" dark>
-                <v-btn icon @click="close">
-                  <v-icon>mdi-close</v-icon>
-                </v-btn>
-                <v-toolbar-title>Neue Episode</v-toolbar-title>
-                <v-spacer />
-                <v-btn depressed color="secondary" @click="close">Speichern</v-btn>
-              </v-toolbar>
-            </template>
-            <template v-else>Neue Episode</template>
-          </v-card-title>
-          <v-divider v-if="!$vuetify.breakpoint.xs" />
-          <v-card-text class="pa-0">
-            <episodeEdit />
-          </v-card-text>
-          <v-divider />
-          <v-card-actions v-if="!$vuetify.breakpoint.xs">
-            <v-spacer />
-            <v-btn color="secondary" text @click="close">abbrechen</v-btn>
-            <v-btn color="secondary" outlined @click="close">speichern</v-btn>
-          </v-card-actions>
-        </v-card>
-      </template>
-    </altDialog>
   </div>
 </template>
 
-<script lang="ts" src="./index.ts"/>
+<script lang="ts">
+import { Component } from "nuxt-property-decorator"
+
+import { EpisodeData } from "@/types"
+import Episode from "@/classes/episode"
+import PageMixin from "@/mixin"
+
+// @ts-ignore
+@Component({ fetchOnServer: false })
+export default class Index extends PageMixin {
+  page = 1;
+  visible = 8;
+
+  min = 0;
+  max = 8;
+  search = ""
+
+  get searchItems(): EpisodeData[] {
+    let items = (this.$accessor.feed.rss || { item: [] }).item
+    if (this.search) {
+      items = items.filter(episode =>
+        episode.title.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()) ||
+        (episode.description || "").toLocaleLowerCase().includes(this.search.toLocaleLowerCase()) ||
+        (episode["itunes:summary"] || "").toLocaleLowerCase().includes(this.search.toLocaleLowerCase()),
+      )
+    }
+    return items
+  }
+
+  get displayItems() {
+    const page = this.page - 1
+
+    this.min = (page * this.visible)
+    this.max = (page * this.visible) + this.visible
+
+    if (this.min !== 0) {
+      this.min--
+      this.max--
+    }
+
+    return this.searchItems.slice(this.min, this.max).map(episodeData => new Episode(episodeData))
+  }
+
+  get showImages() {
+    return true
+    // return [...new Set(this.displayItems.map((item: Episode) => item.image))].length > 1
+  }
+
+  get pages() {
+    return parseInt((this.searchItems.length / this.visible).toFixed(0))
+  }
+
+  mounted() {
+    const urlArray = document.location.href.split("/")
+    if (urlArray[3]) {
+      this.search = urlArray[urlArray.length - 1]
+    }
+  }
+
+  async fetch() {
+    if (!this.$accessor.feed.rss) {
+      await this.initFeed()
+    }
+  }
+}
+</script>

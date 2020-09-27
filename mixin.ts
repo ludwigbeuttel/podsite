@@ -1,9 +1,8 @@
 import { Component, Vue } from "nuxt-property-decorator"
 import xml2js from "xml2js"
 
-// @ts-ignore
-@Component({ fetchOnServer: false })
-export default class Mixin extends Vue {
+@Component
+export default class PageMixin extends Vue {
   async initFeed() {
     function reduce(obj: any) {
       if (Array.isArray(obj) && obj.length === 1) {

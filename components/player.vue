@@ -8,7 +8,13 @@
         </v-btn>
       </v-col>
       <v-col v-if="!breakpoint.xs && episode.image" class="shrink">
-        <altDialog no-fullscreen max-width="800" transition="scale-transition" origin="bottom left">
+        <alt-dialog
+          no-fullscreen
+          max-width="800"
+          transition="scale-transition"
+          origin="bottom left"
+          scrollable
+        >
           <template v-slot:activator="{ on }">
             <v-img
               v-ripple
@@ -22,14 +28,16 @@
           </template>
           <template v-slot:default="{ close }">
             <v-card>
-              <v-img :aspect-ratio="1" :src="episode.image" @click="close" />
+              <v-card-text class="pa-0">
+                <v-img :aspect-ratio="1" :src="episode.image" @click="close" />
+              </v-card-text>
               <v-card-actions>
                 <v-spacer />
                 <v-btn color="secondary" outlined @click="close">schliessen</v-btn>
               </v-card-actions>
             </v-card>
           </template>
-        </altDialog>
+        </alt-dialog>
       </v-col>
       <v-col class="py-0" align-self="center">
         <div style="position:relative">
@@ -74,7 +82,7 @@
             </v-tooltip>
           </template>
           <v-card outlined>
-            <episodeDetails v-model="episode" />
+            <episode-details v-model="episode" />
           </v-card>
         </v-menu>
       </v-col>
@@ -104,10 +112,8 @@ import { Vue, Component } from "nuxt-property-decorator"
 import { Howl, Howler } from "howler"
 
 import Episode from "@/classes/episode"
-import altDialog from "@/components/altDialog.vue"
-import episodeDetails from "@/components/episodeDetails.vue"
 
-@Component({ components: { altDialog, episodeDetails } })
+@Component
 export default class Player extends Vue {
   episode = new Episode()
 

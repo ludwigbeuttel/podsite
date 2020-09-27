@@ -52,7 +52,7 @@ import { Vue, Component, Prop } from "nuxt-property-decorator"
 import Episode from "@/classes/episode"
 
 @Component
-export default class EpDetails extends Vue {
+export default class EpisodeDetails extends Vue {
   @Prop() value!: Episode
   @Prop({ default: true }) showImage!: boolean
   @Prop({ default: false }) loading!: boolean

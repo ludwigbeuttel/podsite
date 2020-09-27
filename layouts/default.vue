@@ -22,7 +22,7 @@
         <template>{{ media.name }}</template>
       </v-tooltip>
     </v-app-bar>
-    <v-content style="margin-top:128px">
+    <v-main style="margin-top:128px">
       <v-container>
         <v-row align="center" justify="center">
           <v-col class="text-center">
@@ -32,13 +32,13 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
 
     <v-footer color="primary">
           <v-btn small to="/about" text dark>Impressum</v-btn>
     </v-footer>
 
-    <altDialog v-if="$accessor.feed.rss" no-fullscreen max-width="400">
+    <alt-dialog v-if="$accessor.feed.rss" no-fullscreen max-width="400">
       <template v-slot:activator="{ on }">
         <fab
           :style="$accessor.activeEpisode.episode && $accessor.activeEpisode.episode.title ? 'margin-bottom: 64px' : ''"
@@ -87,7 +87,7 @@
           </v-card-actions>
         </v-card>
       </template>
-    </altDialog>
+    </alt-dialog>
 
     <v-slide-y-reverse-transition mode="out-in">
       <v-footer

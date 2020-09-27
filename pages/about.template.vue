@@ -18,6 +18,7 @@
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator"
 
-@Component
+// @ts-ignore
+@Component({ scrollToTop: true })
 export default class Impressum extends Vue {}
 </script>

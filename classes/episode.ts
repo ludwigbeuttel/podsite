@@ -1,6 +1,11 @@
 import { DateTime } from "luxon"
-
 import { EpisodeData } from "@/types"
+
+interface Enclosure {
+  url: string;
+  type: string;
+  length: string;
+}
 
 export default class Episode {
   private enclosure: { $: Enclosure } = {
@@ -132,10 +137,4 @@ export default class Episode {
       this.guid = guid()
     }
   }
-}
-
-interface Enclosure {
-  url: string;
-  type: string;
-  length: string;
 }
