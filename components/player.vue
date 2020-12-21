@@ -33,7 +33,9 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="secondary" outlined @click="close">schliessen</v-btn>
+                <v-btn color="secondary" outlined @click="close">
+                  {{ $t('close') }}
+                </v-btn>
               </v-card-actions>
             </v-card>
           </template>
@@ -78,7 +80,7 @@
                   <v-icon>mdi-clipboard-text</v-icon>
                 </v-btn>
               </template>
-              <template>Details</template>
+              <template>{{ $t('player.details') }}</template>
             </v-tooltip>
           </template>
           <v-card outlined>
@@ -93,14 +95,14 @@
               icon
               :href="episode.enclosureData.url"
               download
-              aria-label="Episode herunterladen"
+              :aria-label="$t('downloadEpisode')"
               @click.stop
               v-on="on"
             >
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </template>
-          <template>Download</template>
+          <template>{{ $t('download') }}</template>
         </v-tooltip>
       </v-col>
     </v-row>

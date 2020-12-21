@@ -19,7 +19,7 @@
         </v-card>
       </v-col>
       <v-col cols="12" sm="8" md="6" lg="4" class="mb-3">
-        <v-text-field v-model="search" outlined label="Suche" prepend-inner-icon="mdi-magnify" clearable hide-details />
+        <v-text-field v-model="search" outlined :label="$t('search')" prepend-inner-icon="mdi-magnify" clearable hide-details />
       </v-col>
     </v-row>
     <v-row justify="center">
@@ -58,7 +58,7 @@
           </v-col>
         </template>
         <template v-else>
-          <div class="display-1">keine Episoden gefunden</div>
+          <div class="display-1">{{ $t('noneFound') }}</div>
         </template>
         <template v-if="pages > 0">
           <v-col cols="12">

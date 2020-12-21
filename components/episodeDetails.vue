@@ -22,21 +22,21 @@
 
       <v-list-item class="mt-1 text-left" style="min-height: unset">
         <v-list-item-content>
-          <v-list-item-subtitle>Shownotes</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ $t('player.shownotes') }}</v-list-item-subtitle>
           <v-list-item-title class="content" style="white-space: normal; max-height: calc(100vh - 330px); overflow-y: auto;" v-html="value.content" />
         </v-list-item-content>
       </v-list-item>
 
       <v-list-item class="text-left">
         <v-list-item-content>
-          <v-list-item-subtitle>Veröffentlichungsdatum</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ $t('player.releaseDate') }}</v-list-item-subtitle>
           <v-list-item-title>{{ value.date.toLocaleString() }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
       <v-list-item class="text-left pb-1" two-line>
         <v-list-item-content>
-          <v-list-item-subtitle>Dauer</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ $t('player.duration') }}</v-list-item-subtitle>
           <v-list-item-title>{{ value.duration }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>

@@ -35,7 +35,7 @@
     </v-main>
 
     <v-footer color="primary">
-          <v-btn small to="/about" text dark>Impressum</v-btn>
+          <v-btn small to="/about" text dark>{{ $t('about') }}</v-btn>
     </v-footer>
 
     <alt-dialog v-if="$accessor.feed.rss" no-fullscreen max-width="400">
@@ -47,14 +47,14 @@
           icon="mdi-plus"
           color="secondary"
           v-on="on"
-        >abonnieren</fab>
+        >{{ $t('subscribe') }}</fab>
       </template>
       <template v-slot:default="{ close }">
         <v-card outlined>
           <v-card-title
             class="text--truncate"
             style="word-break: break-word;"
-          >{{ $accessor.feed.rss.title }} abonnieren mit</v-card-title>
+          >{{ $t('subscribeText') }} {{ $accessor.feed.rss.title }}</v-card-title>
           <v-card-text class="text--primary">
             <v-btn
               v-for="service in services"
@@ -83,7 +83,9 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer />
-            <v-btn color="secondary" outlined @click="close">schliessen</v-btn>
+            <v-btn color="secondary" outlined @click="close">
+              {{ $t('close') }}
+            </v-btn>
           </v-card-actions>
         </v-card>
       </template>

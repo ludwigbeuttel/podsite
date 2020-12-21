@@ -40,9 +40,32 @@ const nuxtConfig: Configuration = {
     "@nuxtjs/eslint-module",
   ],
   modules: [
+    "nuxt-i18n",
     "@nuxtjs/axios",
     "@nuxtjs/dotenv",
   ],
+  i18n: {
+    locales: [
+      { code: "en", file: "en.json" },
+      { code: "de", file: "de.json" },
+    ],
+    detectBrowserLanguage: {
+      alwaysRedirect: true,
+      fallbackLocale: "en",
+      useCookie: false
+    },
+    lazy: true,
+    langDir: "locales/",
+    defaultLocale: "en",
+    strategy: "no_prefix",
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {},
+        de: {}
+      }
+    },
+  },
   ignore: ["**/*.template.*"],
   vuetify: {
     optionsPath: "~/vuetify.options.ts",

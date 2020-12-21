@@ -13,6 +13,7 @@ Oh, and it's in German. I'll translate it into English at some point.
 * Litte setup required. Just enter your podcasts information and run two commands. You don't even habe to do any theming (altough you can).
 * Integrated audio player
 * Extremely resource efficient on your backend
+* Internationalization (german and english available)
 
 ## How it works
 
@@ -53,12 +54,12 @@ Want to use this for your own feed?
 ### short term
 
 ✔ podcast search
+✔ english translation / internationalization
 
 * better error detection & configuration
 * add comments to the code
-* english translation / internationalization
-* write an optional backend so users don't have to download the entire feed on every visit
 
 ### long term
 
 * write an optional backend for podcast management
+* write an optional backend for pagination so users don't have to download the entire feed on every visit

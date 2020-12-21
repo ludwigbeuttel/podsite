@@ -1,0 +1,18 @@
+{
+    "search": "Search",
+    "noneFound": "no episodes found",
+    "play": "play",
+    "download": "download",
+    "about": "About us",
+    "subscribe": "subscribe",
+    "subscribeText": "Subscribe to",
+    "close": "close",
+    "openEpisode": "open episode",
+    "downloadEpisode": "download episode",
+    "player": {
+        "details": "Details",
+        "shownotes": "Shownotes",
+        "releaseDate": "Release Date",
+        "duration": "Duration"
+    }
+}

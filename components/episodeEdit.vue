@@ -60,7 +60,7 @@
         <v-textarea
           v-model="episode.desc"
           messages="empfohlen, einzelner Satz der die Folge kurz beschreibt"
-          label="Beschreibung"
+          :label="$t('player.shownotes')"
           outlined
           prepend-icon="mdi-text"
           no-resize
@@ -99,7 +99,7 @@
               outlined
               prepend-icon="mdi-calendar"
               readonly
-              label="Veröffentlichungsdatum"
+              :label="$t('player.releaseDate')"
               :messages="released ? 'nicht bearbeitbar, da bereits veröffentlicht' : 'Pflichtfeld'"
               append-icon="mdi-backup-restore"
               @click:append="resetDateTime()"
@@ -118,7 +118,9 @@
             <v-time-picker v-model="time" class="elevation-0" no-title format="24hr" scrollable />
             <v-card-actions>
               <v-spacer />
-              <v-btn outlined @click="dateMenu = false">schliessen</v-btn>
+              <v-btn outlined @click="dateMenu = false">
+                {{ $t('close') }}
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-menu>

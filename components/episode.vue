@@ -43,21 +43,21 @@
         :class="value.image && showImage ? hover ? 'mt-n3' : 'mt-1' : ''"
       >
         <v-list-item-content>
-          <v-list-item-subtitle>Beschreibung</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ $t('player.shownotes') }}</v-list-item-subtitle>
           <v-list-item-title style="white-space: pre-line;" v-html="value.description" />
         </v-list-item-content>
       </v-list-item>
 
       <v-list-item class="text-left" two-line>
         <v-list-item-content>
-          <v-list-item-subtitle>Veröffentlichungsdatum</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ $t('player.releaseDate') }}</v-list-item-subtitle>
           <v-list-item-title>{{ value.date.toLocaleString() }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
       <v-list-item class="text-left pb-1" two-line>
         <v-list-item-content>
-          <v-list-item-subtitle>Dauer</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ $t('player.duration') }}</v-list-item-subtitle>
           <v-list-item-title>{{ value.duration }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -71,7 +71,7 @@
           color="secondary"
           @click.stop="$accessor.activeEpisode.changeEpisode(value)"
         >
-          <v-icon>mdi-play</v-icon>&nbsp;abspielen
+          <v-icon>mdi-play</v-icon>&nbsp;{{ $t("play") }}
         </v-btn>
         <v-spacer />
         <slot />
@@ -81,7 +81,7 @@
               color="secondary"
               :href="value.enclosureData.url"
               download
-              aria-label="Episode herunterladen"
+              :aria-label="$t('downloadEpisode')"
               icon
               @click.stop
               v-on="on"
@@ -89,7 +89,7 @@
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </template>
-          <template>herunterladen</template>
+          <template>{{ $t('download') }}</template>
         </v-tooltip>
       </v-card-actions>
 
@@ -102,10 +102,12 @@
 
             <v-card-actions>
               <v-btn color="secondary" text nuxt :to="`/episode?guid=${value.guid._}`">
-                <v-icon>mdi-open-in-new</v-icon>&nbsp;Episode öffnen
+                <v-icon>mdi-open-in-new</v-icon>&nbsp;{{ $t('openEpisode') }}
               </v-btn>
               <v-spacer />
-              <v-btn outlined color="secondary" @click="close">schließen</v-btn>
+              <v-btn outlined color="secondary" @click="close">
+                {{ $t('close') }}
+              </v-btn>
             </v-card-actions>
           </v-card>
         </template>

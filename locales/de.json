@@ -1,0 +1,19 @@
+{
+    "search": "Suche",
+    "noneFound": "keine Episoden gefunden",
+    "play": "abspielen",
+    "back": "zurück",
+    "download": "herunterladen",
+    "about": "Impressum",
+    "subscribe": "abonnieren",
+    "subscribeText": "abonniere",
+    "close": "schließen",
+    "openEpisode": "Episode öffnen",
+    "downloadEpisode": "Episode herunterladen",
+    "player": {
+        "details": "Details",
+        "shownotes": "Shownotes",
+        "releaseDate": "Veröffentlichungsdatum",
+        "duration": "Dauer"
+    }
+}

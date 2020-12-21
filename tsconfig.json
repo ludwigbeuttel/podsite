@@ -27,6 +27,7 @@
     "types": [
       "@types/node",
       "@nuxt/types",
+      "nuxt-i18n",
       "@nuxt/vue-app",
       "@nuxtjs/vuetify",
       "@nuxtjs/axios"

@@ -2,14 +2,16 @@
   <v-row justify="center" align="center" class="fill-height">
     <v-col class="justify-self" align-self="center" style="max-width: 800px">
       <v-card outlined>
-        <episode-details
-          v-model="episode"
-          :loading="$fetchState.pending"
-        >
+        <episode-details v-model="episode" :loading="$fetchState.pending">
           <template v-slot:top>
-            <v-btn icon large nuxt to="/" class="mr-1">
-              <v-icon>mdi-arrow-left</v-icon>
-            </v-btn>
+            <v-tooltip right>
+              <template v-slot:activator="{ on }">
+                <v-btn large icon nuxt v-on="on" to="/" style="align-self: center">
+                  <v-icon>mdi-arrow-left</v-icon>
+                </v-btn>
+              </template>
+              <span>{{ $t('back') }}</span>
+            </v-tooltip>&nbsp;
           </template>
           <template>
             <v-card-actions>
@@ -19,7 +21,7 @@
                 @click.stop="$accessor.activeEpisode.changeEpisode(episode)"
               >
                 <v-icon>mdi-play</v-icon>
-                &nbsp;abspielen
+                &nbsp;{{ $t('play') }}
               </v-btn>
               <v-spacer />
               <v-tooltip bottom>
@@ -29,14 +31,14 @@
                     icon
                     :href="episode.enclosureData.url"
                     download
-                    aria-label="Episode herunterladen"
+                    :aria-label="$t('downloadEpisode')"
                     @click.stop
                     v-on="on"
                   >
                     <v-icon>mdi-download</v-icon>
                   </v-btn>
                 </template>
-                <template>herunterladen</template>
+                <template>{{ $t('download') }}</template>
               </v-tooltip>
             </v-card-actions>
           </template>
@@ -72,7 +74,7 @@ export default class EpByGUID extends PageMixin {
       const guid = (this.$route.query.guid as string).replace(" ", "+")
 
       if (guid) {
-        const data = this.$accessor.feed.rss!.item.find(ep => {
+        const data = this.$accessor.feed.rss!.item.find((ep) => {
           if (ep.guid) {
             if (typeof ep.guid === "string") {
               return ep.guid === guid
