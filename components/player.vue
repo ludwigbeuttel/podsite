@@ -77,7 +77,7 @@
             <v-tooltip top>
               <template v-slot:activator="{ on: tooltip }">
                 <v-btn aria-label="Detials öffnen" icon v-on="{ ...tooltip, ...menu }">
-                  <v-icon>mdi-clipboard-text</v-icon>
+                  <v-icon>{{ icons.mdiClipboardText }}</v-icon>
                 </v-btn>
               </template>
               <template>{{ $t('player.details') }}</template>
@@ -99,7 +99,7 @@
               @click.stop
               v-on="on"
             >
-              <v-icon>mdi-download</v-icon>
+              <v-icon>{{ icons.mdiDownload }}</v-icon>
             </v-btn>
           </template>
           <template>{{ $t('download') }}</template>
@@ -112,12 +112,17 @@
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator"
 import { Howl, Howler } from "howler"
+import { mdiClipboardText, mdiDownload } from '@mdi/js'
 
 import Episode from "@/classes/episode"
 
 @Component
 export default class Player extends Vue {
   episode = new Episode()
+  icons = {
+    mdiClipboardText,
+    mdiDownload,
+  }
 
   audio: null | Howl = null
   progressVal = 0

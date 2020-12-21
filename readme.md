@@ -54,6 +54,7 @@ Want to use this for your own feed?
 ### short term
 
 ✔ podcast search
+
 ✔ english translation / internationalization
 
 * better error detection & configuration

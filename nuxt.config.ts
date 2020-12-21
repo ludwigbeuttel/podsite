@@ -60,10 +60,6 @@ const nuxtConfig: Configuration = {
     strategy: "no_prefix",
     vueI18n: {
       fallbackLocale: 'en',
-      messages: {
-        en: {},
-        de: {}
-      }
     },
   },
   ignore: ["**/*.template.*"],

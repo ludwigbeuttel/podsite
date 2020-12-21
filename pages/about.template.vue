@@ -6,7 +6,7 @@
           <v-tooltip top>
             <template v-slot:activator="{ on }">
               <v-btn icon nuxt v-on="on" to="/">
-                <v-icon>mdi-arrow-left</v-icon>
+                <v-icon>{{ icons.mdiArrowLeft }}</v-icon>
               </v-btn>
             </template>
             <span>{{ $t('back') }}</span>
@@ -23,8 +23,13 @@
 
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator"
+import { mdiArrowLeft } from '@mdi/js'
 
 // @ts-ignore
 @Component({ scrollToTop: true })
-export default class About extends Vue {}
+export default class About extends Vue {
+  icons = {
+    mdiArrowLeft,
+  }
+}
 </script>

@@ -143,6 +143,7 @@ import {
   // @ts-ignore
 } from "tiptap-extensions"
 
+
 @Component({ components: { EditorContent, EditorMenuBar } })
 export default class TipTapEditor extends Vue {
   @Prop() value!: string

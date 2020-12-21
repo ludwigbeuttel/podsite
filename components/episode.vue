@@ -71,7 +71,7 @@
           color="secondary"
           @click.stop="$accessor.activeEpisode.changeEpisode(value)"
         >
-          <v-icon>mdi-play</v-icon>&nbsp;{{ $t("play") }}
+          <v-icon>{{ icons.mdiPlay }}</v-icon>&nbsp;{{ $t("play") }}
         </v-btn>
         <v-spacer />
         <slot />
@@ -86,7 +86,7 @@
               @click.stop
               v-on="on"
             >
-              <v-icon>mdi-download</v-icon>
+              <v-icon>{{ icons.mdiDownload }}</v-icon>
             </v-btn>
           </template>
           <template>{{ $t('download') }}</template>
@@ -102,7 +102,7 @@
 
             <v-card-actions>
               <v-btn color="secondary" text nuxt :to="`/episode?guid=${value.guid._}`">
-                <v-icon>mdi-open-in-new</v-icon>&nbsp;{{ $t('openEpisode') }}
+                <v-icon>{{ icons.mdiOpenInNew }}</v-icon>&nbsp;{{ $t('openEpisode') }}
               </v-btn>
               <v-spacer />
               <v-btn outlined color="secondary" @click="close">
@@ -118,15 +118,22 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
+import { mdiPlay, mdiDownload, mdiOpenInNew } from '@mdi/js'
 
-import Episode from "@/classes/episode"
+import EpisodeClass from "@/classes/episode"
 
 @Component
-export default class Ep extends Vue {
-  @Prop() value!: Episode
+export default class Episode extends Vue {
+  @Prop() value!: EpisodeClass
   @Prop({ default: true }) showImage!: boolean
   titleHeight = 64
   detailsOpen = false
+
+  icons={
+    mdiPlay,
+    mdiDownload,
+    mdiOpenInNew,
+  }
 
   mounted() {
     this.setTitleHeight()

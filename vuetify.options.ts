@@ -3,7 +3,7 @@ import "@mdi/font/css/materialdesignicons.css"
 export default {
   customVariables: ["~/assets/variables.scss"],
   icons: {
-    iconfont: "mdi",
+    iconfont: ["mdiSvg", "mdi"],
   },
   theme: {
     dark: false,

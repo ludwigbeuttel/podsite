@@ -15,7 +15,7 @@
             :block="$vuetify.breakpoint.xs"
             to="/"
           >
-            <v-icon>mdi-home</v-icon>&nbsp;
+            <v-icon>{{ icons.mdiHome }}</v-icon>&nbsp;
             Startseite
           </v-btn>
         </v-row>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { mdiHome } from '@mdi/js'
+
 export default {
   name: "NuxtError",
   props: {
@@ -32,6 +34,11 @@ export default {
       type: Object,
       default: null,
     },
+  },
+  data () {
+    return {
+      icons: { mdiHome },
+    }
   },
   computed: {
     statusCode() {

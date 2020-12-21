@@ -7,7 +7,7 @@
             <v-tooltip right>
               <template v-slot:activator="{ on }">
                 <v-btn large icon nuxt v-on="on" to="/" style="align-self: center">
-                  <v-icon>mdi-arrow-left</v-icon>
+                  <v-icon>{{ icons.mdiArrowLeft }}</v-icon>
                 </v-btn>
               </template>
               <span>{{ $t('back') }}</span>
@@ -20,7 +20,7 @@
                 color="secondary"
                 @click.stop="$accessor.activeEpisode.changeEpisode(episode)"
               >
-                <v-icon>mdi-play</v-icon>
+                <v-icon>{{ icons.mdiPlay }}</v-icon>
                 &nbsp;{{ $t('play') }}
               </v-btn>
               <v-spacer />
@@ -35,7 +35,7 @@
                     @click.stop
                     v-on="on"
                   >
-                    <v-icon>mdi-download</v-icon>
+                    <v-icon>{{ icons.mdiDownload }}</v-icon>
                   </v-btn>
                 </template>
                 <template>{{ $t('download') }}</template>
@@ -52,6 +52,7 @@
 /* eslint-disable dot-notation */
 
 import { Component } from "nuxt-property-decorator"
+import { mdiArrowLeft, mdiPlay, mdiDownload } from '@mdi/js'
 
 import Episode from "@/classes/episode"
 import PageMixin from "@/mixin"
@@ -60,6 +61,11 @@ import PageMixin from "@/mixin"
 @Component({ scrollToTop: true, fetchOnServer: false })
 export default class EpByGUID extends PageMixin {
   episode = new Episode()
+  icons = {
+    mdiArrowLeft,
+    mdiPlay,
+    mdiDownload,
+  }
 
   async fetch() {
     if (!this.$accessor.feed.rss) {
