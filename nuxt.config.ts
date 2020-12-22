@@ -44,6 +44,9 @@ const nuxtConfig: Configuration = {
     "@nuxtjs/axios",
     "@nuxtjs/dotenv",
   ],
+  axios: {
+    baseURL: process.env.BASE_URL,
+  },
   i18n: {
     locales: [
       { code: "en", file: "en.json" },
