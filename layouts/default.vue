@@ -35,7 +35,7 @@
     </v-main>
 
     <v-footer color="primary">
-          <v-btn small to="/about" text dark>{{ $t('about') }}</v-btn>
+          <v-btn small to="/aboutDemo" text dark>{{ $t('about') }}</v-btn>
     </v-footer>
 
     <alt-dialog v-if="$accessor.feed.rss" no-fullscreen max-width="400">

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+<title>Title of Podcast</title>
+<link>https://github.com/ludwigbeuttel/podsite</link>
+<language>en-us</language>
+<itunes:subtitle>Subtitle of podcast</itunes:subtitle>
+<itunes:author>Ludwig Beuttel</itunes:author>
+<itunes:summary>Description of podcast.</itunes:summary>
+<description>Description of podcast.</description>
+<itunes:owner>
+    <itunes:name>Ludwig Beuttel</itunes:name>
+    <itunes:email>ludwig.beuttel@gmail.com</itunes:email>
+</itunes:owner>
+<itunes:explicit>no</itunes:explicit>
+<itunes:image href="/images/patrick-li-VMX3_Ovv8B8-unsplash.jpg" />
+<itunes:category text="Category Name"></itunes:category>
+<item>
+    <title>Episode 9</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep9</guid>
+    <itunes:image href="/images/logan-clark-FQhQFs9zXc8-unsplash.jpg"/>
+</item>
+<item>
+    <title>Episode 8</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep8</guid>
+    <itunes:image href="/images/giancarlo-corti-GiQ9Yck2h3E-unsplash.jpg"/>
+</item>
+<item>
+    <title>Episode 7</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep7</guid>
+    <itunes:image href="/images/cristina-anne-costello-ygjY00ojGnE-unsplash.jpg"/>
+</item>
+<item>
+    <title>Episode 6</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep6</guid>
+    <itunes:image href="/images/cristina-anne-costello-bOW30Dz4mrY-unsplash.jpg"/>
+</item>
+<item>
+    <title>Episode 5</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep5</guid>
+    <itunes:image href="/images/christopher-ott-gt3qT1h86bM-unsplash.jpg"/>
+</item>
+<item>
+    <title>Episode 4</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep4</guid>
+    <itunes:image href="/images/bangkokrush-CX9EFaCidIg-unsplash.jpg"/>
+</item>
+<item>
+    <title>Episode 3</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep3</guid>
+</item>
+<item>
+    <title>Episode 2</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep2</guid>
+</item>
+<item>
+    <title>Episode 1</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep1</guid>
+</item>
+<item>
+    <title>Episode 0</title>
+    <itunes:summary><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></itunes:summary>
+    <description><![CDATA["Voxel Revolution" Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br>http://creativecommons.org/licenses/by/4.0/]]></description>
+    <link>/VoxelRevolution.mp3</link>
+    <enclosure url="/VoxelRevolution.mp3" type="audio/mpeg" length="2600392"></enclosure>
+    <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+    <itunes:author>Ludwig Beuttel</itunes:author>
+    <itunes:duration>00:02:09</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>ep0</guid>
+</item>
+</channel>
+</rss>

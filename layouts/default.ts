@@ -3,7 +3,7 @@ import Vibrant from "node-vibrant"
 // @ts-ignore
 import { Palette } from "node-vibrant/lib/color"
 
-import { services, socialMedia } from "@/podcastData"
+import { services, socialMedia } from "@/podcastDataDemo"
 import { Platform, Social } from "@/types"
 
 @Component
@@ -15,7 +15,7 @@ export default class DefaultLayout extends Vue {
       }
       if (this.$accessor.feed.rss["itunes:image"]) {
         // eslint-disable-next-line dot-notation
-        return this.$accessor.feed.rss["itunes:image"]["$"].href
+        return window.location.href.slice(0, -1) + this.$accessor.feed.rss["itunes:image"]["$"].href
       } else {
         return ""
       }
@@ -28,7 +28,7 @@ export default class DefaultLayout extends Vue {
 
   @Watch("headerImage") async onImageChange() {
     if (process.env.NODE_ENV !== "development") {
-      const palette = await Vibrant.from(this.headerImage).getSwatches()
+      const palette = await Vibrant.from(window.location.href + this.headerImage).getSwatches()
 
       this.palette = palette
 

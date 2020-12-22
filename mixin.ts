@@ -27,7 +27,7 @@ export default class PageMixin extends Vue {
     const parser = new xml2js.Parser()
 
     try {
-      const res = await this.$axios.$get(process.env.NODE_ENV === "development" ? "/api/externalFeed" : process.env.FEEDLOCATION!)
+      const res = await this.$axios.$get(process.env.FEEDLOCATION!)
       let data = reduce(await parser.parseStringPromise(res))
       data = data.rss.channel
       this.$accessor.feed.setFeed(data)

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import { Configuration } from "@nuxt/types"
-import { description, name } from "./podcastData"
+import { description, name } from "./podcastDataDemo"
 
 const nuxtConfig: Configuration = {
   ssr: true,
@@ -64,7 +64,7 @@ const nuxtConfig: Configuration = {
   },
   ignore: ["**/*.template.*"],
   vuetify: {
-    optionsPath: "~/vuetify.options.ts",
+    optionsPath: "~/vuetifyDemo.options.ts",
   },
   serverMiddleware: [
     {
