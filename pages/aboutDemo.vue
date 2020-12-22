@@ -33,7 +33,7 @@
               icon
               color="secondary"
               small
-              href="mailto://ludwig.beuttel@gmail.com"
+              href="mailto:ludwig.beuttel@gmail.com"
             >
               <v-icon small>mdi-email</v-icon>
             </v-btn>

@@ -10,7 +10,7 @@ export const socialMedia: Social[] = [
   },
   {
     name: "E-Mail",
-    url: "mailto://ludwig.beuttel@gmail.com",
+    url: "mailto:ludwig.beuttel@gmail.com",
     icon: "email",
   },
 ]
