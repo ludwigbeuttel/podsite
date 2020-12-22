@@ -5,7 +5,7 @@
         <v-card-title class="headline">
           <v-tooltip top>
             <template v-slot:activator="{ on }">
-              <v-btn icon nuxt v-on="on" to="/">
+              <v-btn icon nuxt to="/" v-on="on">
                 <v-icon>{{ icons.mdiArrowLeft }}</v-icon>
               </v-btn>
             </template>

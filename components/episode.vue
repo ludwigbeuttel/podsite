@@ -101,7 +101,7 @@
             </v-card-text>
 
             <v-card-actions>
-              <v-btn color="secondary" text nuxt :to="`/episode?guid=${value.guid._}`">
+              <v-btn color="secondary" text nuxt :to="`/episode?guid=${value.guid._ || value.guid}`">
                 <v-icon>{{ icons.mdiOpenInNew }}</v-icon>&nbsp;{{ $t('openEpisode') }}
               </v-btn>
               <v-spacer />
