@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator"
-import { mdiArrowLeft } from '@mdi/js'
+import { mdiArrowLeft } from "@mdi/js"
 
 // @ts-ignore
 @Component({ scrollToTop: true })

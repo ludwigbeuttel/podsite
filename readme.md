@@ -6,8 +6,6 @@ a frontend for your Podcast
 
 This project is in a pretty early stage. While all features work with most podcast feeds, some might cause issues.
 
-Oh, and it's in German. I'll translate it into English at some point.
-
 ## Features
 
 * Litte setup required. Just enter your podcasts information and run two commands. You don't even habe to do any theming (altough you can).

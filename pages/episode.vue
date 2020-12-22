@@ -52,7 +52,7 @@
 /* eslint-disable dot-notation */
 
 import { Component } from "nuxt-property-decorator"
-import { mdiArrowLeft, mdiPlay, mdiDownload } from '@mdi/js'
+import { mdiArrowLeft, mdiPlay, mdiDownload } from "@mdi/js"
 
 import Episode from "@/classes/episode"
 import PageMixin from "@/mixin"

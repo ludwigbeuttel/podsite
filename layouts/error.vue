@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mdiHome } from '@mdi/js'
+import { mdiHome } from "@mdi/js"
 
 export default {
   name: "NuxtError",

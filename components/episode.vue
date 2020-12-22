@@ -118,7 +118,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
-import { mdiPlay, mdiDownload, mdiOpenInNew } from '@mdi/js'
+import { mdiPlay, mdiDownload, mdiOpenInNew } from "@mdi/js"
 
 import EpisodeClass from "@/classes/episode"
 

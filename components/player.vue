@@ -112,7 +112,7 @@
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator"
 import { Howl, Howler } from "howler"
-import { mdiClipboardText, mdiDownload } from '@mdi/js'
+import { mdiClipboardText, mdiDownload } from "@mdi/js"
 
 import Episode from "@/classes/episode"
 

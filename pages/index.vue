@@ -49,7 +49,7 @@
             <transition-group name="list-items" tag="div" class="row justify-center mx-0">
               <episode
                 v-for="episode in displayItems"
-                :key="episode.guid['_']"
+                :key="episode.guid['_'] || episode.guid"
                 :value="episode"
                 :show-image="showImages"
                 class="ma-6"
@@ -124,7 +124,7 @@ export default class Index extends PageMixin {
   }
 
   get pages() {
-    return parseInt((this.searchItems.length / this.visible).toFixed(0))
+    return parseInt((this.searchItems.length / this.visible).toFixed(0)) + 1
   }
 
   mounted() {

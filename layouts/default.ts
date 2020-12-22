@@ -1,5 +1,6 @@
 import { Vue, Component, Watch } from "nuxt-property-decorator"
 import Vibrant from "node-vibrant"
+// @ts-ignore
 import { Palette } from "node-vibrant/lib/color"
 
 import { services, socialMedia } from "@/podcastData"
