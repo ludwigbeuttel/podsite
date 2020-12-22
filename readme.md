@@ -2,6 +2,8 @@
 
 a frontend for your Podcast
 
+[demo](https://elastic-fermi-9b3917.netlify.app/)
+
 ## On the status of this project
 
 This project is in a pretty early stage. While all features work with most podcast feeds, some might cause issues.
